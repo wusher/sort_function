@@ -1,0 +1,16 @@
+{
+  "name": "sort_function",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "prettier --write *.js *.md"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5"
+  }
+}
