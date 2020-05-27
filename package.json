@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "lint": "prettier --write *.js *.md"
+    "lint": "eslint *.js --fix && prettier --write *.js *.md",
+    "lint:ci": "eslint *.js && prettier --check *.js *.md "
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.11.0",
     "jest": "^26.0.1",
     "prettier": "^2.0.5"
   }
