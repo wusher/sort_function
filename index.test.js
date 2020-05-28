@@ -1,6 +1,6 @@
 const algos = require("./index.js");
-
-["bubbleSort", "mergeSort", "quickSort"].forEach((algoName) => {
+// ["bubbleSort", "mergeSort", "quickSort"].forEach((algoName) =>  {
+["bubbleSort", "mergeSort"].forEach((algoName) => {
   describe(`Algorithm ${algoName}`, () => {
     test("empty array", () => {
       // arrange
