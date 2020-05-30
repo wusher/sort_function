@@ -56,8 +56,43 @@ function mergeSort(data) {
   return mergeSortCombine(left, right);
 }
 
-function quickSort(data) {
-  // TODO implement quick sort  here
+function quickSortPartition(data, low, high) {
+  let pivot = data[high];
+  let idxSmallest = low - 1;
+  let swap;
+
+  for (let idx = low; idx < high; idx++) {
+    if (data[idx] < pivot) {
+      idxSmallest++;
+      swap = data[idxSmallest];
+      data[idxSmallest] = data[idx];
+      data[idx] = swap;
+    }
+  }
+
+  idxSmallest++;
+  swap = data[idxSmallest];
+  data[idxSmallest] = data[high];
+  data[high] = swap;
+  return idxSmallest;
+}
+
+function quickSort(data, low, high) {
+  if (low === undefined) {
+    low = 0;
+  }
+  if (high === undefined) {
+    high = data.length - 1;
+  }
+  if (low >= high) {
+    return data;
+  }
+
+  const idxPivot = quickSortPartition(data, low, high);
+
+  quickSort(data, low, idxPivot - 1);
+  quickSort(data, idxPivot + 1, high);
+
   return data;
 }
 

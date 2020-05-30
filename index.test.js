@@ -1,6 +1,6 @@
 const algos = require("./index.js");
-// ["bubbleSort", "mergeSort", "quickSort"].forEach((algoName) =>  {
-["bubbleSort", "mergeSort"].forEach((algoName) => {
+
+["bubbleSort", "mergeSort", "quickSort"].forEach((algoName) => {
   describe(`Algorithm ${algoName}`, () => {
     test("empty array", () => {
       // arrange
@@ -52,7 +52,7 @@ const algos = require("./index.js");
       expect(result).toEqual(target);
     });
 
-    test("unsorted array with dupplicate items", () => {
+    test("unsorted array with duplicate items", () => {
       // arrange
       const input = [4, 2, 5, 2, 3, 1];
       const target = [1, 2, 2, 3, 4, 5];
