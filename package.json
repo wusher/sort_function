@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --runInBand --verbose",
     "lint": "eslint *.js --fix && prettier --write *.js *.md",
     "lint:ci": "eslint *.js && prettier --check *.js *.md "
   },
