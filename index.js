@@ -1,12 +1,59 @@
 function bubbleSort(data) {
-  // TODO implement bubblesort here
+  let hasChanges = true;
+  while (hasChanges) {
+    hasChanges = false;
+    for (let i = 0; i < data.length - 1; i++) {
+      let j = i + 1;
+      if (data[i] > data[j]) {
+        hasChanges = true;
+        let swap = data[i];
+        data[i] = data[j];
+        data[j] = swap;
+      }
+    }
+  }
 
   return data;
 }
 
+function mergeSortCombine(left, right) {
+  const merged = [];
+  while (left.length > 0 || right.length > 0) {
+    if (left.length > 0 && right.length > 0) {
+      if (left[0] <= right[0]) {
+        merged.push(left.shift());
+      } else {
+        merged.push(right.shift());
+      }
+    } else if (left.length > 0) {
+      merged.push(left.shift());
+    } else {
+      merged.push(right.shift());
+    }
+  }
+
+  return merged;
+}
 function mergeSort(data) {
-  // TODO implement merge sort  here
-  return data;
+  // MergeSort(arr[], l,  r)
+  // If r > l
+  //      1. Find the middle point to divide the array into two halves:
+  //              middle m = (l+r)/2
+  //      2. Call mergeSort for first half:
+  //              Call mergeSort(arr, l, m)
+  //      3. Call mergeSort for second half:
+  //              Call mergeSort(arr, m+1, r)
+  //      4. Merge the two halves sorted in step 2 and 3:
+  //              Call merge(arr, l, m, r)
+  if (data.length <= 1) {
+    return data;
+  }
+  const middle = Math.floor(data.length / 2);
+  const leftSplit = data.slice(0, middle);
+  const rightSplit = data.slice(middle);
+  const left = mergeSort(leftSplit);
+  const right = mergeSort(rightSplit);
+  return mergeSortCombine(left, right);
 }
 
 function quickSort(data) {
